@@ -3,110 +3,159 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <link rel="stylesheet" href="src/style.css">
+    <link rel="stylesheet" href="src/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>User Registration</title>
   </head>
-  <body>
+  <body
+    class="bg-gray-100 min-h-screen flex flex-col items-center justify-center"
+  >
     <div class="top-title">
-      <h1>Users</h1>
-      <h3>Registered Users</h3>
+      <h1 class="font-bold text-2xl mb-20">Registered Users</h3>
     </div>
     <div class="button-container">
-      <button>+ Add User</button>
+      <button
+        id="openModalBtn"
+        class="bg-green-600 text-white font-medium px-4 py-2 rounded-xl hover:bg-green-700"
+      >
+        + Add User
+      </button>
+      <!-- the model -->
+      <div
+        id="modal"
+        class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden"
+      >
+        <div
+          class="bg-white p-6 rounded-2xl shadow-lg w-full max-w-md relative"
+        >
+          <button
+            id="closeModalBtn"
+            class="absolute top-2 right-2 text-gray-500 hover:text-gray-800 text-xl"
+          >
+            &times;
+          </button>
+          <h2 class="text-2xl font-bold mb-6 text-center">
+            User Information Form
+          </h2>
+          <form class="space-y-4">
+            <div>
+              <label class="block font-medium text-gray-700">Full Name</label>
+              <input
+                id="fullName"
+                placeholder="Enter full name"
+                type="text"
+                class="mt-1 block w-full p-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
 
-      <form action="">
-        <h3>Add New User</h3>
-        <label for="">ID</label>
-        <input type="text" />
-        <label for="">Name</label>
-        <input type="text" />
-        <label for="">Age</label>
-        <input type="number" />
-        <label for="">Gender</label>
-        <select name="genderdropdown" id="genderdropdown" rrequired>
-          <option value="" selected disabled>Select gender</option>
-          <option value="option1">Male</option>
-          <option value="option2">Female</option>
-        </select>
-        <div> <label for="">Marital Status</label>
-          <div>
-            <input type="radio" id="option1" name="choice" value="first_option" />
-            <label for="option1">Single</label>
-          </div>
-          <div>
-            <input
-              type="radio"
-              id="option2"
-              name="choice"
-              value="second_option"
-            />
-            <label for="option2">Married</label>
-          </div>
+            <div>
+              <label class="block font-medium text-gray-700">ID Number</label>
+              <input
+                id="idNumber"
+                type="text"
+                placeholder="Enter ID number"
+                class="mt-1 block w-full p-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+
+            <div>
+              <label class="block font-medium text-gray-700">Address</label>
+              <textarea
+                id="address"
+                rows="3"
+                placeholder="Enter Address"
+                class="mt-1 block w-full p-2 border rounded-xl border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              ></textarea>
+            </div>
+
+            <div>
+              <label class="block font-medium text-gray-700">Age</label>
+              <input
+                id="age"
+                type="number"
+                placeholder="Enter age"
+                class="mt-1 block w-full p-2 border rounded-xl border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+
+            <div>
+              <label class="block font-medium text-gray-700">Gender</label>
+
+              <label class="inline-flex items-center">
+                <input
+                  type="radio"
+                  name="gender"
+                  value="Male"
+                  class="text-blue-500"
+                />
+                <span class="ml-2">Male</span>
+              </label>
+
+              <label class="inline-flex items-center">
+                <input type="radio" name="gender" value="Female" />
+                <span class="ml-2">Female</span>
+              </label>
+              <label class="inline-flex items-center">
+                <input type="radio" name="gender" value="Other" />
+                <span class="ml-2">Other</span>
+              </label>
+            </div>
+
+            <div>
+              <label class="block font-medium text-gray-700"
+                >Marital Status</label
+              >
+              <select
+                id="maritalStatus"
+                class="mt-1 block w-full p-2 border rounded-xl border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              >
+                <option selected disabled></option>
+                <option>Single</option>
+                <option>Married</option>
+                <option>Divorced</option>
+                <option>Widowed</option>
+              </select>
+            </div>
+            <div class="flex justify-between mt-6">
+              <button
+                type="submit"
+                class="bg-green-600 text-white font-medium px-4 py-2 rounded-xl hover:bg-green-700"
+              >
+                Submit
+              </button>
+              <button
+                type="reset"
+                class="bg-gray-300 text-gray-700 px-4 py-2 rounded-xl hover:bg-gray-400"
+              >
+                Cancel
+              </button>
+            </div>
+          </form>
         </div>
-      </form>
+      </div>
     </div>
-    <div>
-      <table></table>
-    </div>
-    <div class="users">
-      <table>
+
+    <table>
+      <thead>
         <tr>
           <th>First Name</th>
           <th>Last Name</th>
+          <th>ID Number</th>
           <th>Address</th>
           <th>Age</th>
           <th>Gender</th>
+          <th>Marital Status</th>
+          <th></th>
         </tr>
-        <tr>
-          <td>Isingizwe</td>
-          <td>Kadogo</td>
-          <td>Gasabo</td>
-          <td>25</td>
-          <td>Female</td>
-          <td>
-            <button class="deleteBtn"><i class="fas fa-trash"></i></button>
-          </td>
-        </tr>
+      </thead>
+      <tbody id="userTableBody"></tbody>
+    </table>
 
-        <tr>
-          <td>Mugisha</td>
-          <td>Caleb</td>
-          <td>Nyarugenge</td>
-          <td>24</td>
-          <td>Male</td>
-          <td>
-            <button class="deleteBtn"><i class="fas fa-trash"></i></button>
-          </td>
-        </tr>
-
-        <tr>
-          <td>John</td>
-          <td>Nolan</td>
-          <td>Kicukiro</td>
-          <td>54</td>
-          <td>Male</td>
-          <td>
-            <button class="deleteBtn"><i class="fas fa-trash"></i></button>
-          </td>
-        </tr>
-
-        <tr>
-          <td>Lucy</td>
-          <td>Chen</td>
-          <td>Nyarugenge</td>
-          <td>34</td>
-          <td>Female</td>
-          <td>
-            <button class="deleteBtn"><i class="fas fa-trash"></i></button>
-          </td>
-        </tr>
-
-      </table>
-    </div>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
