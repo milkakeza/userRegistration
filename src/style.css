@@ -22,13 +22,13 @@ a:hover {
   color: #535bf2;
 }
 
-body {
+/*body {
   margin: 0;
   display: flex;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-}
+}*/
 
 h1 {
   font-size: 3.2em;
@@ -75,11 +75,29 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #fefefe;
+  cursor: pointer;
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+th, td{
+  padding: 20px;
+}
+.button-container {
+  text-align: right;
+}
+.deleteButton {
+  background-color: white;
+}
+.deleteButton:hover {
+  border-color: #fefefe;
+  cursor: pointer;
+}
+#user {
+  display: flex;
+  place-items: center;
 }
 
 @media (prefers-color-scheme: light) {
@@ -91,7 +109,7 @@ button:focus-visible {
     color: #747bff;
   }
   button {
-    background-color: #f9f9f9;
+    background-color: #49a475;
   }
 }
 
