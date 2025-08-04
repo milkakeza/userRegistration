@@ -88,13 +88,12 @@ th, td{
 .button-container {
   text-align: right;
 }
-.deleteButton {
-  background-color: white;
-}
-.deleteButton:hover {
-  border-color: #fefefe;
+.deleteBtn {
+  background-color: transparent;
+  border: none;
   cursor: pointer;
 }
+
 #user {
   display: flex;
   place-items: center;
