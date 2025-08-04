@@ -111,3 +111,8 @@ th, td{
     background-color: #49a475;
   }
 }
+
+.top-title{
+  /* flex-direction: column; */
+  line-height: -30px;
+}

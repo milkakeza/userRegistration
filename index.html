@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -11,12 +11,46 @@
     <title>User Registration</title>
   </head>
   <body>
-    <div>
+    <div class="top-title">
       <h1>Users</h1>
       <h3>Registered Users</h3>
     </div>
     <div class="button-container">
       <button>+ Add User</button>
+
+      <form action="">
+        <h3>Add New User</h3>
+        <label for="">ID</label>
+        <input type="text" />
+        <label for="">Name</label>
+        <input type="text" />
+        <label for="">Age</label>
+        <input type="number" />
+        <label for="">Gender</label>
+        <select name="genderdropdown" id="genderdropdown" rrequired>
+          <option value="" selected disabled>Select gender</option>
+          <option value="option1">Male</option>
+          <option value="option2">Female</option>
+        </select>
+        <div> <label for="">Marital Status</label>
+          <div>
+            <input type="radio" id="option1" name="choice" value="first_option" />
+            <label for="option1">Single</label>
+          </div>
+          <div>
+            <input
+              type="radio"
+              id="option2"
+              name="choice"
+              value="second_option"
+            />
+            <label for="option2">Married</label>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div>
+      <table></table>
     </div>
     <div class="users">
       <table>
