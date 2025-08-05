@@ -9,6 +9,7 @@ document.querySelector("form").addEventListener("submit", function (e) {
   const maritalStatus = document.getElementById("maritalStatus").value;
 
   const [firstName, lastName] = fullName.trim().split(" ");
+  
 
   const table = document.getElementById("userTableBody");
   const newRow = document.createElement("tr");
