@@ -14,14 +14,14 @@ document.querySelector("form").addEventListener("submit", function (e) {
   const newRow = document.createElement("tr");
 
   newRow.innerHTML = `
-<td>${firstName || ""}</td>
-<td>${lastName || ""}</td>
-<td>${idNumber}</td>
-<td>${address}</td>
-<td>${age}</td>
-<td>${gender}</td>
-<td>${maritalStatus}</td>
-<td><button onClick = "this.closest('tr').remove()"><i class="fa-solid fa-trash"></i></button></td>
+<td class = "p-10">${firstName || ""}</td>
+<td class = "p-10">${lastName || ""}</td>
+<td class = "p-10">${idNumber}</td>
+<td class = "p-10">${address}</td>
+<td class = "p-10">${age}</td>
+<td class = "p-10">${gender}</td>
+<td class = "p-10">${maritalStatus}</td>
+<td class = "p-10"><button onClick = "this.closest('tr').remove()"><i class="fa-solid fa-trash"></i></button></td>
 `;
 
   table.appendChild(newRow);
