@@ -1,24 +1,50 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+document.querySelector("form").addEventListener("submit", function (e) {
+  e.preventDefault();
+  const fullName = document.getElementById("fullName").value;
+  const idNumber = document.getElementById("idNumber").value;
+  const address = document.getElementById("address").value;
+  const age = document.getElementById("age").value;
+  const gender =
+    document.querySelector('input[name="gender"]:checked')?.value || "";
+  const maritalStatus = document.getElementById("maritalStatus").value;
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+  const [firstName, lastName] = fullName.trim().split(" ");
+  
 
-setupCounter(document.querySelector('#counter'))
+  const table = document.getElementById("userTableBody");
+  const newRow = document.createElement("tr");
+
+  newRow.innerHTML = `
+<td class = "p-10">${firstName || ""}</td>
+<td class = "p-10">${lastName || ""}</td>
+<td class = "p-10">${idNumber}</td>
+<td class = "p-10">${address}</td>
+<td class = "p-10">${age}</td>
+<td class = "p-10">${gender}</td>
+<td class = "p-10">${maritalStatus}</td>
+<td class = "p-10"><button onClick = "this.closest('tr').remove()"><i class="fa-solid fa-trash"></i></button></td>
+`;
+
+  table.appendChild(newRow);
+
+  this.reset();
+  document.getElementById("modal").classList.add("hidden");
+});
+
+const openModal = document.getElementById("openModalBtn");
+const closeModal = document.getElementById("closeModalBtn");
+const modal = document.getElementById("modal");
+
+openModal.addEventListener("click", () => {
+  modal.classList.remove("hidden");
+});
+
+closeModal.addEventListener("click", () => {
+  modal.classList.add("hidden");
+});
+
+window.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    modal.classList.add("hidden");
+  }
+});

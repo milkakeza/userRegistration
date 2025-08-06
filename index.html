@@ -1,13 +1,172 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="stylesheet" href="src/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>User Registration</title>
   </head>
-  <body>
-    <h1>Bite se man👋</h1>
+  <body
+    class="bg-gray-100 min-h-screen flex flex-col items-center justify-center"
+  >
+    <div class="flex justify-between items-center w-full max-w-5xl px-6 mb-10">
+      <h1 class="font-bold text-2xl mb-20">Registered Users</h3>
+    
+    
+      <button
+        id="openModalBtn"
+        class="bg-green-600 text-white font-medium px-4 py-2 rounded-xl hover:bg-green-700"
+      >
+        + Add User
+      </button>
+      </div>
+      <!-- the model -->
+      <div
+        id="modal"
+        class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden"
+      >
+        <div
+          class="bg-white p-6 rounded-2xl shadow-lg w-full max-w-md relative"
+        >
+          <button
+            id="closeModalBtn"
+            class="absolute top-2 right-2 text-gray-500 hover:text-gray-800 text-xl"
+          >
+            &times;
+          </button>
+          <h2 class="text-2xl font-bold mb-6 text-center">
+            User Information Form
+          </h2>
+          <form class="space-y-4">
+            <div>
+              <label class="block font-medium text-gray-700">Full Name</label>
+              <input
+                id="fullName"
+                placeholder="Enter full name"
+                type="text"
+                required
+                class="mt-1 block w-full p-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+
+            <div>
+              <label class="block font-medium text-gray-700">ID Number</label>
+              <input
+                id="idNumber"
+                type="text"
+                placeholder="Enter ID number"
+                required
+                pattern="^\d{16}$"
+                title="ID number must be exactly 16 digits"
+                class="mt-1 block w-full p-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+
+            <div>
+              <label class="block font-medium text-gray-700">Address</label>
+              <textarea
+                id="address"
+                rows="3"
+                placeholder="Enter Address"
+                required
+                class="mt-1 block w-full p-2 border rounded-xl border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              ></textarea>
+            </div>
+
+            <div>
+              <label class="block font-medium text-gray-700">Age</label>
+              <input
+                id="age"
+                type="number"
+                min="0"
+                max="120"
+                placeholder="Enter age"
+                class="mt-1 block w-full p-2 border rounded-xl border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+
+            <div>
+              <label class="block font-medium text-gray-700">Gender</label>
+
+              <label class="inline-flex items-center">
+                <input
+                  type="radio"
+                  name="gender"
+                  value="Male"
+                  class="text-blue-500"
+                  required
+                />
+                <span class="ml-2">Male</span>
+              </label>
+
+              <label class="inline-flex items-center">
+                <input type="radio" name="gender" value="Female" required/>
+                <span class="ml-2">Female</span>
+              </label>
+              <label class="inline-flex items-center">
+                <input type="radio" name="gender" value="Other" />
+                <span class="ml-2">Other</span>
+  
+              </label>
+            </div>
+
+            <div>
+              <label class="block font-medium text-gray-700"
+                >Marital Status</label
+              >
+              <select
+              required
+                id="maritalStatus"
+                class="mt-1 block w-full p-2 border rounded-xl border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              >
+                <option selected disabled></option>
+                <option>Single</option>
+                <option>Married</option>
+                <option>Divorced</option>
+                <option>Widowed</option>
+              </select>
+            </div>
+            <div class="flex justify-between mt-6">
+              <button
+                type="submit"
+                class="bg-green-600 text-white font-medium px-4 py-2 rounded-xl hover:bg-green-700"
+              >
+                Submit
+              </button>
+              <button
+                type="reset"
+                class="bg-gray-300 text-gray-700 px-4 py-2 rounded-xl hover:bg-gray-400"
+              >
+                Cancel
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    
+
+    <table class="min-w-full border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+      <thead class="bg-gray-50 text-gray-700 text-left text-sm font-semibold">
+        <tr>
+          <th class="px-10 border-b border-gray-200">First Name</th>
+          <th class="px-10 border-b border-gray-200">Last Name</th>
+          <th class="px-10 border-b border-gray-200">ID Number</th>
+          <th class="px-10 border-b border-gray-200">Address</th>
+          <th class="px-10 border-b border-gray-200">Age</th>
+          <th class="px-10 border-b border-gray-200">Gender</th>
+          <th class="px-10 border-b border-gray-200">Marital Status</th>
+          <th class="px-10 border-b border-gray-200 text-center"></th>
+        </tr>
+      </thead>
+      <tbody id="userTableBody" class="p-10"></tbody>
+    </table>
+
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
