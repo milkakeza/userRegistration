@@ -4,7 +4,7 @@ let userCounter = 1;
 
 // Update user count display
 function updateUserCount() {
-  const count = document.getElementById("userTableBody").children.length - 1; // Subtract 1 for empty state row
+  const count = document.getElementById("userTableBody").children.length - 1;
   document.getElementById("userCount").textContent = Math.max(0, count);
 
   // Show/hide empty state
@@ -76,11 +76,7 @@ function createNewUserRow(
   const newRow = document.createElement("tr");
   newRow.className = "hover:bg-gray-50 transition-colors duration-200";
   newRow.innerHTML = `
-        <td class="px-6 py-4">
-            <span class="inline-flex items-center justify-center w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 text-white text-sm font-bold rounded-full">
-                ${userNo}
-            </span>
-        </td>
+        <td class="px-6 py-4">${userNo}</td>
         <td class="px-6 py-4 text-gray-900 font-medium">${firstName || ""}</td>
         <td class="px-6 py-4 text-gray-900 font-medium">${lastName || ""}</td>
         <td class="px-6 py-4 text-gray-600 font-mono text-sm">${idNumber}</td>
@@ -107,7 +103,7 @@ function createNewUserRow(
                 <button class="edit-btn p-2 text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded-lg transition-all duration-200" title="Edit User">
                     <i class="fas fa-edit"></i>
                 </button>
-                <button class="delete-btn p-2 text-red-600 hover:text-red-800 hover:bg-red-50 rounded-lg transition-all duration-200" title="Delete User">
+                <button class="delete-btn p-2  hover:bg-gray-100 rounded-lg transition-all duration-200" title="Delete User">
                     <i class="fas fa-trash"></i>
                 </button>
             </div>
